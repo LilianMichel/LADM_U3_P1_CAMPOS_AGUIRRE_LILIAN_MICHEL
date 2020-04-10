@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">LADM_U3_P1_CAMPOS_AGUIRRE_LILIAN_MICHEL</string>
+    <string name="BotonCapturar">CAPTURAR ACTIVIDAD</string>
+    <string name="BotonBuscar">BUSCAR ACTIVIDAD</string>
+    <string name="Capturar">CAPTURAR ACTIVIDAD</string>
+    <string name="Buscar">BUSCAR ACTIVIDAD</string>
+</resources>
