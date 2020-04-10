@@ -19,6 +19,12 @@ class Main2Activity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
 
+        btnEvidencia.setOnClickListener {
+            startActivity(Intent(this, Evidencia::class.java))
+        }
+        btnMostrarTodos.setOnClickListener {
+            cargarLista()
+        }
         btnBuscarID.setOnClickListener {
             consultaID()
         }
@@ -82,7 +88,7 @@ class Main2Activity : AppCompatActivity() {
             var data = conexion.mostrarID(editTextID.text.toString())
             if (data.size == 0) {
                 if (conexion.error == 3) {
-                    dialogo("No se encontraron resultados")
+                    dialogo("NO SE ENCONTRARON RESULTADOS")
                 }//if
                 return
             }//if
@@ -92,7 +98,7 @@ class Main2Activity : AppCompatActivity() {
             (0..total).forEach {
                 var actividades = data[it]
                 var item =
-                    "id: " + actividades.id + "\nDescripción: " + actividades.descripcion + "\nFecha Captura: " + actividades.fechaCaptura + "\nFecha entrega: " + actividades.fechaEntrega
+                    "Id: " + actividades.id + "\nDescripción: " + actividades.descripcion + "\nFecha Captura: " + actividades.fechaCaptura + "\nFecha Entrega: " + actividades.fechaEntrega
                 vector[it] = item
                 listaID.add(actividades.id.toString())
             }//forEach
@@ -103,12 +109,12 @@ class Main2Activity : AppCompatActivity() {
                 con.asignarPuntero(this)
                 var actEncontrada = con.buscar(listaID[position])
                 if (con.error == 4) {
-                    dialogo("Error, no se encontró ID")
+                    dialogo("NO SE ENCONTRO ID")
                     return@setOnItemClickListener
                 }//if
                 AlertDialog.Builder(this)
                     .setTitle("¿Qué deseas hacer?")
-                    .setMessage("Id: ${actEncontrada.id}\nDescripción: ${actEncontrada.descripcion}\nFecha de captura: ${actEncontrada.fechaCaptura}\nFecha de entrega: ${actEncontrada.fechaEntrega}")
+                    .setMessage("Id: ${actEncontrada.id}\nDescripción: ${actEncontrada.descripcion}\nFecha de Captura: ${actEncontrada.fechaCaptura}\nFecha de Entrega: ${actEncontrada.fechaEntrega}")
                     .setPositiveButton("Ver a detalle") { d, i ->
                         cargarEnOtroActivity(actEncontrada)
                     }
@@ -137,17 +143,16 @@ class Main2Activity : AppCompatActivity() {
             .show()
     }
 
-    fun  cargarEnOtroActivity(act: Actividad){
-
+    private fun cargarEnOtroActivity(act: Actividad) {
         var intento = Intent(this, Main3Activity::class.java)
+        intento.putExtra("id", act.id)
+        intento.putExtra("descripcion", act.descripcion)
+        intento.putExtra("fechaCaptura", act.fechaCaptura)
+        intento.putExtra("fechaEntrega", act.fechaEntrega)
 
-        intento.putExtra("descripcion",act.descripcion)
-        intento.putExtra("fechaCaptura",act.fechaCaptura)
-        intento.putExtra("fechaEntrega",act.fechaEntrega)
+        startActivityForResult(intento, 0)
 
-        startActivityForResult(intento,0)
-
-    }
+    }//cargarEnOtroActivity
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         cargarLista()

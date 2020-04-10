@@ -12,7 +12,7 @@ class Actividad(d:String, fc:String, fe:String) {
     var id = 0
     var error = -1
 
-    val nombreBaseDatos = "actividades"
+    val nombreBaseDatos = "practica1"
 
     var puntero: Context?=null
 

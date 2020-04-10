@@ -13,7 +13,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-
+        <EditText
+            android:id="@+id/editID"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="ID:" />
         <TextView
             android:id="@+id/textDescripcion"
             android:layout_width="match_parent"
@@ -70,10 +74,10 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/btnEliminar"
+        android:id="@+id/btnVerAct"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="ELIMINAR" />
+        android:text="VER ACTIVIDAD" />
 
 
     <Button
@@ -83,27 +87,23 @@
         android:text="ACTUALIZAR" />
 
     <Button
+        android:id="@+id/btnEliminar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ELIMINAR" />
+
+
+    <Button
         android:id="@+id/btnRegresar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="REGRESAR" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="375dp"
-        android:layout_height="270dp"
-        app:srcCompat="@drawable/ic_launcher_foreground" />
-
-    <Button
-        android:id="@+id/btnSeleccionarImg"
+    <ListView
+        android:id="@+id/listaImg"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="SELECCIONAR IMAGEN" />
+        android:layout_height="match_parent" />
 
-    <Button
-        android:id="@+id/btnMostrarImg"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="MOSTRAR IMAGEN" />
+
 
 </LinearLayout>

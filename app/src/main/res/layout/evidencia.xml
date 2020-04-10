@@ -5,26 +5,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ImagenBuscar">
+    android:padding="20dp"
+    tools:context=".Evidencia">
+
+    <Button
+        android:id="@+id/btnSeleccionarImg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SELECCIONAR IMAGEN" />
+
+    <Button
+        android:id="@+id/btnGuardarImg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="GUARDAR IMAGEN" />
 
     <ImageView
         android:id="@+id/img_select"
-        android:layout_width="400dp"
-        android:layout_height="400dp">
-
-    </ImageView>
-
-    <Button
-        android:id="@+id/btnSelect"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Elegir" />
-
-    <Button
-        android:id="@+id/btnSave"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="GUARDAR" />
-
+        android:layout_height="608dp"></ImageView>
 
 </LinearLayout>

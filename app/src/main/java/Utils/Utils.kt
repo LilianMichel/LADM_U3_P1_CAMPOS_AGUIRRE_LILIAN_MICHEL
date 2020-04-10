@@ -7,11 +7,12 @@ import java.io.ByteArrayOutputStream
 object Utils {
     fun getBytes(bitmap: Bitmap):ByteArray{
         var stream= ByteArrayOutputStream()
-        bitmap.compress(Bitmap.CompressFormat.PNG,0,stream)
+        bitmap.compress(Bitmap.CompressFormat.JPEG,100,stream)
         return stream.toByteArray()
     }//getBytes
 
     fun getImage(image:ByteArray): Bitmap {
         return BitmapFactory.decodeByteArray(image,0,image.size)
     }
+
 }

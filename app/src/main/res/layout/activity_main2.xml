@@ -19,6 +19,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="BUSCAR ID" />
+    <Button
+        android:id="@+id/btnMostrarTodos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="MOSTRAR TODOS ID" />
+    <Button
+        android:id="@+id/btnEvidencia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="AÑADIR EVIDENCIA" />
+
 
     <ListView
         android:layout_width="match_parent"
