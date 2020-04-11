@@ -34,19 +34,6 @@ class Main3Activity : AppCompatActivity() {
             cargarImagenes(editID.text.toString())
         }//btnMostrar
 
-        btnActualizar.setOnClickListener {
-            var actualizarAct = Actividad(editTextDescripcion.text.toString(), editTextCaptura.text.toString(), editTextEntrega.text.toString())
-            actualizarAct.id = id.toInt()
-            actualizarAct.asignarPuntero(this)
-
-            if (actualizarAct.actualizar()==true){
-                dialogo("SE ACTUALIZO")
-            }else{
-                dialogo("ERROR, NO SE PUDO ACTUALIZAR")
-            }
-            finish()
-
-        }
 
         btnRegresar.setOnClickListener {
             var intento = Intent(this, Main2Activity::class.java)
