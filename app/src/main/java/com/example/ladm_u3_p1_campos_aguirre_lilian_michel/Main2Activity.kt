@@ -20,7 +20,7 @@ class Main2Activity : AppCompatActivity() {
         setContentView(R.layout.activity_main2)
 
         btnEvidencia.setOnClickListener {
-            startActivity(Intent(this, Evidencia::class.java))
+            startActivity(Intent(this, EvidenciaActivity::class.java))
         }
         btnMostrarTodos.setOnClickListener {
             cargarLista()

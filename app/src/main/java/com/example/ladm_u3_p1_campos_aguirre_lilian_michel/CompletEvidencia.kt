@@ -4,7 +4,8 @@ import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteException
 
-class CompletEvidencia(foto: ByteArray?,idActividad:String) {
+class CompletEvidencia(idActividad: String, foto: ByteArray) {
+
     var foto = foto
     var idActividad = idActividad
     var idEvidencia = 0
@@ -24,14 +25,12 @@ class CompletEvidencia(foto: ByteArray?,idActividad:String) {
             var datos = ContentValues()
             datos.put("IDACTIVIDAD", idActividad)
             datos.put("FOTO", foto)
-            var respuesta = insertar.insert("EVIDENCIAS", "IDEVIDENCIA", datos)
+            var respuesta = insertar.insert("EVIDENCIA", "IDEVIDENCIA", datos)
             if (respuesta.toInt() == -1) {
-                //ERROR AL INSERTAR
                 error = 2
                 return false
             }
         } catch (e: SQLiteException) {
-            //Error en la conexion
             error = 1
             return false
         }

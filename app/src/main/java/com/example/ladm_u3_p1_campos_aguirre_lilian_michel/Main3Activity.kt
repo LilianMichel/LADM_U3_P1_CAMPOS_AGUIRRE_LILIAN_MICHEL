@@ -14,14 +14,14 @@ import java.util.ArrayList
 class Main3Activity : AppCompatActivity() {
     var id=0
     var listaID = ArrayList<String>()
-    internal lateinit var dbHelper:BaseDatos
+    internal lateinit var BaseDatos:BaseDatos
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main3)
         var extra = intent.extras
 
-        id=extra!!.getInt("id_actividad")
+        id=extra!!.getInt("id")
         editID.setText(id.toString())
         editTextDescripcion.setText(extra.getString("descripcion"))
         editTextCaptura.setText(extra.getString("fechaCaptura"))
@@ -29,10 +29,19 @@ class Main3Activity : AppCompatActivity() {
         cargarImagenes(editID.text.toString())
         apagarEdits()
 
-        dbHelper= BaseDatos(this,"practica1",null,1)
+        BaseDatos= BaseDatos(this,"practica1",null,1)
         btnVerAct.setOnClickListener {
             cargarImagenes(editID.text.toString())
         }//btnMostrar
+
+        btnActualizar.setOnClickListener {
+
+        }
+
+        btnRegresar.setOnClickListener {
+            var intento = Intent(this, Main2Activity::class.java)
+            startActivityForResult(intento, 0)
+        }
 
         btnEliminar.setOnClickListener {
             AlertDialog.Builder(this)
