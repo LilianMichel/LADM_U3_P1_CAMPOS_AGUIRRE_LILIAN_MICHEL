@@ -35,6 +35,16 @@ class Main3Activity : AppCompatActivity() {
         }//btnMostrar
 
         btnActualizar.setOnClickListener {
+            var actualizarAct = Actividad(editTextDescripcion.text.toString(), editTextCaptura.text.toString(), editTextEntrega.text.toString())
+            actualizarAct.id = id.toInt()
+            actualizarAct.asignarPuntero(this)
+
+            if (actualizarAct.actualizar()==true){
+                dialogo("SE ACTUALIZO")
+            }else{
+                dialogo("ERROR, NO SE PUDO ACTUALIZAR")
+            }
+            finish()
 
         }
 
@@ -189,5 +199,12 @@ class Main3Activity : AppCompatActivity() {
         editTextEntrega.isFocusable=false
 
     }//apagarEdits
+    fun  dialogo(s:String){
+        AlertDialog.Builder(this)
+            .setTitle("ATENCION")
+            .setMessage(s)
+            .setPositiveButton("OK"){d,i->}
+            .show()
+    }//Dialogo
 
 }//class
